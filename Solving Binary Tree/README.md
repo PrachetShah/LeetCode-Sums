@@ -4,7 +4,7 @@
  ***Some Examples***
  
 1) Sum of tree
- <img src='Binary Tree Solving.png' />
+ <img src='Tree SUm.png' />
  
  2) Tree Exists
  <img src='Tree Exists.png' />
