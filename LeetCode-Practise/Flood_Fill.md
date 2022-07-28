@@ -36,7 +36,7 @@ class Solution:
         return image
 ```
 
-**Solution using less memory**
+**Solution using less lines but more time and memory**
 ```
 def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
     """ O(N*M)TS in place """
