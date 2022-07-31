@@ -10,7 +10,7 @@ Then to find the maximum of all the sums, we'll have to traverse the list and re
 We aren't doing anything good with the new list because in the end we are traversing the list to find the maximum total. So, 
 eliminate creating new list and start tracking the new sum and maximum number. **This becomes O(n) time and O(1) space**
 
-Kadane's Algorithm, more written on leetcode
+- Kadane's Algorithm, more written on leetcode
 Perfect Discussion(7 Diff Solutions) : <a href="https://leetcode.com/problems/maximum-subarray/discuss/1595195/C%2B%2BPython-7-Simple-Solutions-w-Explanation-or-Brute-Force-%2B-DP-%2B-Kadane-%2B-Divide-and-Conquer">Link to Discussion</a>
 ```
 class Solution:
