@@ -5,7 +5,7 @@
 ![Diagram](https://assets.leetcode.com/users/images/2cf56e11-729e-426b-be98-2ef81469d933_1613721428.3846037.png)
 
 #### method_#1: Dynamic Programming
-`
+```
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:     
         rows, cols = m, n
@@ -30,10 +30,10 @@ class Solution:
         
         # Destination coordination = (rows-1, cols-1)
         return path_dp[rows-1][cols-1]
-`
+```
 
 #### method_#2: Math analysis
-`
+```
 from math import factorial
 
 class Solution:
@@ -48,11 +48,11 @@ class Solution:
         
         
         return factorial( m+n-2 ) // ( factorial( m-1 ) * factorial( n-1 ) )    
-`
+```
 
 #### method_#3 Recursion + Memoization
 
-`
+```
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         
@@ -87,4 +87,4 @@ class Solution:
     
         # -----------------------------------
         return path_count(m, n)
-`
+```
