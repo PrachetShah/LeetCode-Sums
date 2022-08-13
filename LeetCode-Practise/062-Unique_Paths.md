@@ -1,4 +1,4 @@
-## 3 python sol. based on dynamic programming, math analysis, and recursion.
+## 3 Pyhon Sol. based on dynamic programming, math analysis, and recursion.
 
 #### Diagram:
 
