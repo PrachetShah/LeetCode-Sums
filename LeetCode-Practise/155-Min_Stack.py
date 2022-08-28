@@ -24,7 +24,9 @@ class MinStack:
         return self.stack[-1][1] if self.stack else None
 
      
-     ## USing Linked List
+
+	
+## USing Linked List
      class Node:
     def __init__(self, val=None, mini=None, next=None):
         # Initialize Node
