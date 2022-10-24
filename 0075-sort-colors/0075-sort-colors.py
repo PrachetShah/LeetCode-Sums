@@ -1,7 +1,7 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
-        Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead
         """
         zero, one, two = nums.count(0), nums.count(1), nums.count(2)
         index = 0
