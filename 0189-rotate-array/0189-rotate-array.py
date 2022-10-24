@@ -13,20 +13,35 @@ class Solution:
 #             nums[i] = a[i]
         
         # Using Cyclic Replacements
-        k = k % len(nums)
-        count, start = 0, 0
-        while count < len(nums):
-            current = start
-            prev = nums[start]
+#         k = k % len(nums)
+#         count, start = 0, 0
+#         while count < len(nums):
+#             current = start
+#             prev = nums[start]
             
-            while True:
-                next = (current+k)%len(nums)
-                temp = nums[next]
-                nums[next] = prev
-                prev = temp
-                current = next
-                count += 1
+#             while True:
+#                 next = (current+k)%len(nums)
+#                 temp = nums[next]
+#                 nums[next] = prev
+#                 prev = temp
+#                 current = next
+#                 count += 1
                 
-                if start == current:
-                    break
+#                 if start == current:
+#                     break
+#             start += 1
+            
+        # Using Reverse
+        k %= len(nums)
+        self.reverse(nums, 0, len(nums)-1)
+        self.reverse(nums, 0, k-1)
+        self.reverse(nums, k ,len(nums)-1)
+    
+    def reverse(self, nums, start, end) -> None:
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
             start += 1
+            end -= 1
+        
+        
+        
