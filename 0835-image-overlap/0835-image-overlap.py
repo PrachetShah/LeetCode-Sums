@@ -1,26 +1,21 @@
 class Solution:
     def largestOverlap(self, A: List[List[int]], B: List[List[int]]) -> int:
 
+        import numpy as np
+        A = np.array(A)
+        B = np.array(B)
+
         dim = len(A)
+        # extend the matrix to a wider range for the later kernel extraction.
+        B_padded = np.pad(B, dim-1, mode='constant', constant_values=(0, 0))
 
-        def non_zero_cells(M):
-            ret = []
-            for x in range(dim):
-                for y in range(dim):
-                    if M[x][y] == 1:
-                        ret.append((x, y))
-            return ret
-
-        transformation_count = defaultdict(int)
         max_overlaps = 0
-
-        A_ones = non_zero_cells(A)
-        B_ones = non_zero_cells(B)
-
-        for (x_a, y_a) in A_ones:
-            for (x_b, y_b) in B_ones:
-                vec = (x_b - x_a, y_b - y_a)
-                transformation_count[vec] += 1
-                max_overlaps = max(max_overlaps, transformation_count[vec])
+        for x_shift in range(dim*2 - 1):
+            for y_shift in range(dim* 2 - 1):
+                # extract a kernel from the padded matrix
+                kernel = B_padded[x_shift:x_shift+dim, y_shift:y_shift+dim]
+                # convolution between A and kernel
+                non_zeros = np.sum(A * kernel)
+                max_overlaps = max(max_overlaps, non_zeros)
 
         return max_overlaps
