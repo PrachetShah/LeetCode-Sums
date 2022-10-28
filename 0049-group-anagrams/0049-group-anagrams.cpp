@@ -5,10 +5,10 @@ public:
         
         unordered_map<string, vector<string>>mp;
         
-        for(int i=0; i<strs.size(); i++){
-            string s = strs[i];
-            sort(strs[i].begin(), strs[i].end());
-            mp[strs[i]].push_back(s);
+        for(auto i: strs){
+            string s = i;
+            sort(s.begin(), s.end());
+            mp[s].push_back(i);
         }
         
         // now simply put the elements  of second column of map in ans
