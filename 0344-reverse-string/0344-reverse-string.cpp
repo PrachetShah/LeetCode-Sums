@@ -4,7 +4,7 @@ public:
         long long int n = s.size();
         
 		// reverse string by mirror image
-        for( size_t i = 0; i < n/2 ; i ++){
+        for(int i = 0; i < n/2 ; i ++){
             swap(s[i], s[n-1-i]);            
         }
         
