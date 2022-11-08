@@ -1,18 +1,21 @@
 class Solution {
 public:
-    string makeGood(string s) {  
-        // If the string is emtpy, just return it.
-        if (s.empty()) 
-            return s;
+    string makeGood(string s) {
+        // Use stack to store the visited characters.
+        vector<char> stack;
         
-        // If we find a pair in 's', remove this pair from 's'
-        // and solve the remaining string recursively.
-        for (int i = 0; i < s.size() - 1; ++i) {
-            if (abs(s[i] - s[i + 1]) == 32)
-                return  makeGood(s.substr(0, i) + s.substr(i + 2));
+        // Iterate over 's'.
+        for (auto currChar : s) {
+            // If the current character make a pair with the last character in the stack,
+            // remove both of them. Otherwise, we add the current character to stack.
+            if (!stack.empty() && abs(stack.back() - currChar) == 32)
+                stack.pop_back(); 
+            else
+                stack.push_back(currChar);
         }
-
-        // Base case, if we can't find a pair, just return 's'.
-        return s;
+        
+        // Returns the string concatenated by all characters left in the stack.
+        string ans(stack.begin(), stack.end());
+        return ans;
     }
 };
