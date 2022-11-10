@@ -9,4 +9,20 @@ class Solution:
                 stack.append(s[i])
             i += 1
         return ''.join(stack)
-            
+
+    
+# Not Accepted Solution(TLE)
+# class Solution:
+#     def removeDuplicates(self, s: str) -> str:
+#         s = list(s)
+#         while len(s)!=0:
+#             flag = False
+#             for i in range(0, len(s)-1):
+#                 if s[i] == s[i+1]:
+#                     s.pop(i)
+#                     s.pop(i)
+#                     flag = True
+#                     break
+#             if flag == False:
+#                 break
+#         return ''.join(s)
