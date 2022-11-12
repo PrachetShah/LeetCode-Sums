@@ -11,7 +11,7 @@ class MedianFinder:
         k=len(self.lst)
         self.lst.sort()
         if(k%2==0):
-           return ((self.lst[k//2]+self.lst[(k-1)//2])/2)
+            return ((self.lst[k//2]+self.lst[(k-1)//2])/2)
         else:
             return self.lst[k//2]
         
