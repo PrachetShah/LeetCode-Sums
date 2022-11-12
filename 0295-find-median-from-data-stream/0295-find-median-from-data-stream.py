@@ -1,19 +1,30 @@
 class MedianFinder:
-    
+
     def __init__(self):
-        self.lst=[]
-
-    def addNum(self, num: int) -> None:
-        self.lst.append(num)
+        self.s = [float("inf")]
+        self.l = [float("inf")]
+        self.nS = self.nL = 1
         
-
-    def findMedian(self) -> float:
-        k=len(self.lst)
-        self.lst.sort()
-        if(k%2==0):
-            return ((self.lst[k//2]+self.lst[(k-1)//2])/2)
+    def addNum(self, num: int) -> None:
+        if num <= self.l[0]:
+            heappush(self.s, -num)
+            self.nS += 1
         else:
-            return self.lst[k//2]
+            heappush(self.l, num)
+            self.nL += 1
+        if self.nL - self.nS > 1:
+            heappush(self.s, -heappop(self.l))
+            self.nL -= 1
+            self.nS += 1
+        elif self.nS - self.nL > 1:
+            heappush(self.l, -heappop(self.s))
+            self.nL += 1
+            self.nS -= 1
+            
+    def findMedian(self) -> float:
+        if self.nS > self.nL: return -self.s[0]
+        elif self.nS < self.nL: return self.l[0]
+        else: return (-self.s[0] + self.l[0]) / 2
         
 
 
