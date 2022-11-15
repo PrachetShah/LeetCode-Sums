@@ -5,21 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-   
     def countNodes(self, root: Optional[TreeNode]) -> int:
-        def rightCount(node):
-            return 0 if not node else 1 + rightCount(node.right)
-
-        def leftCount(node):
-            return 0 if not node else 1 + leftCount(node.left)
-
-        def count(root):
-            if not root:
-                return 0
-
-            left, right = leftCount(root), rightCount(root)
-            if left == right:
-                return 2**(left)-1
-
-            return 1 + count(root.left) + count(root.right)
-        return count(root)
+        if not root:
+            return 0
+        q=deque()
+        q.append(root)
+        ans=0
+        while q:
+            head=q.popleft()
+            ans+=1
+            if head.left:
+                q.append(head.left)
+            if head.right:
+                q.append(head.right)
+        return ans
