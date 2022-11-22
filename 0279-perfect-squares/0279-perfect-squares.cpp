@@ -5,14 +5,22 @@ public:
             return 0;
         }
         
-        vector<int> cntPerfectSquares(n+1, INT_MAX);
-        cntPerfectSquares[0] = 0;
+        static vector<int> cntPerfectSquares({0});
         
-        for(int i=1; i <= n; i++){
-            for(int j=1; j*j<=i; j++){
-                cntPerfectSquares[i] = min(cntPerfectSquares[i], cntPerfectSquares[i - j*j]+1);
+        // While cntPerfectSquares.size() <= n, we need to incrementally 
+        // calculate the next result until we get the result for n.
+        while (cntPerfectSquares.size() <= n)
+        {
+            int m = cntPerfectSquares.size();
+            int cntSquares = INT_MAX;
+            for (int i = 1; i*i <= m; i++)
+            {
+                cntSquares = min(cntSquares, cntPerfectSquares[m - i*i] + 1);
             }
+            
+            cntPerfectSquares.push_back(cntSquares);
         }
-        return cntPerfectSquares.back();
+        
+        return cntPerfectSquares[n];
     }
 };
