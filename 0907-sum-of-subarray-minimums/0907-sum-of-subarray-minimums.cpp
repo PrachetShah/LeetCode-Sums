@@ -65,8 +65,8 @@ public:
         // total number of subarrays : (Left[i] * Right[i])
         // total contribution in A[i] element in final answer : (Left * Right) * A[i] 
         
-        for(int i=0; i<n; i++) 
-             cout << left[i] << " : " << right[i] << endl;
+        // for(int i=0; i<n; i++) 
+        //      cout << left[i] << " : " << right[i] << endl;
         
         // for each i, contribution is (Left * Right) * Element 
         
