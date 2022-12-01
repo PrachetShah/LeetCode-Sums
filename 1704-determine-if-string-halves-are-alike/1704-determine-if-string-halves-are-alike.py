@@ -4,7 +4,7 @@ class Solution:
         a,b = s[:n//2], s[n//2:]
         # print(a,  b)
         
-        vowels = ('aeiouAEIOU')
+        vowels = set('aeiouAEIOU')
         c1, c2 = 0, 0
         for i in range(n//2):
             if a[i] in vowels:
