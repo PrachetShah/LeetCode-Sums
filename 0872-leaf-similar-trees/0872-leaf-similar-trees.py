@@ -5,11 +5,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
-        def dfs(node):
-            if node:
-                if not node.left and not node.right:
-                    yield node.val
-                yield from dfs(node.left)
-                yield from dfs(node.right)
-        return list(dfs(root1))==list(dfs(root2))
+    def leafSimilar(self, root1, root2):
+        """
+        :type root1: TreeNode
+        :type root2: TreeNode
+        :rtype: bool
+        """
+        return self.iterative(root1,[]) == self.iterative(root2,[])
+        
+    def iterative(self,root,s):
+        if root is not None:
+            stack = []
+            stack.append(root)
+            while stack:
+                x = stack.pop(-1)
+                if x.left is None and x.right is None:
+                    s.append(x.val)
+                    continue
+                if x.right is not None:
+                    stack.append(x.right)
+                if x.left is not None:
+                    stack.append(x.left)
+        return s
