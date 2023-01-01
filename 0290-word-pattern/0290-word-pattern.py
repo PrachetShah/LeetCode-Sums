@@ -1,17 +1,14 @@
 class Solution:
-    def wordPattern(self, pattern: str, s: str) -> bool:
-        n = len(pattern)
-        words = s.split(' ')
-        sim = {}
-        if len(words) != n:
-            return False
-        if len(set(words)) != len(set(pattern)):
-            return False
-        for i in range(len(pattern)):
-            if pattern[i] in sim.keys():
-                if sim[pattern[i]] != words[i]:
-                    return False
-            else:
-                sim[pattern[i]] = words[i]
-        print(sim)
+    def wordPattern(self, p: str, s: str) -> bool:
+        words, w_to_p = s.split(' '), dict()
+
+        if len(p) != len(words): return False
+        if len(set(p)) != len(set(words)): return False # for the case w = ['dog', 'cat'] and p = 'aa'
+
+        for i in range(len(words)):
+            if words[i] not in w_to_p: 
+                w_to_p[words[i]] = p[i]
+            elif w_to_p[words[i]] != p[i]: 
+                return False
+
         return True
