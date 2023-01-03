@@ -4,8 +4,8 @@ class Solution:
         ans = 0
         for i in range(cols):
             order = ord('a')
-            for j in range(len(strs)):
-                if order > ord(strs[j][i]):
+            for j in range(1, len(strs)):
+                if ord(strs[j-1][i]) > ord(strs[j][i]):
                     ans += 1
                     break
                 else:
