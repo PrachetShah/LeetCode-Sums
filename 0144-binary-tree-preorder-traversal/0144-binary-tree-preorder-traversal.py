@@ -4,6 +4,24 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+'''
+RECURSIVE SOLUTION
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        output = []
+        def traverse(root):
+            if root == None:
+                return False
+            output.append(root.val)
+            traverse(root.left)
+            traverse(root.right)
+        traverse(root)
+        return output
+'''
+
+'''
+ITERATIVE SOLUTION
+'''
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         output = []
