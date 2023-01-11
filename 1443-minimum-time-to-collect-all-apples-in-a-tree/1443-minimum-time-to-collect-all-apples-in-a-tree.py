@@ -4,7 +4,7 @@ class Solution:
         for s, e in edges:
             adj[s].append(e)
             adj[e].append(s)
-        def dfs(node, parent, ad, hasApple):
+        def dfs(node, parent, adj, hasApple):
             totalTime, childTime = 0, 0
             for child in adj[node]:
                 if child == parent:
