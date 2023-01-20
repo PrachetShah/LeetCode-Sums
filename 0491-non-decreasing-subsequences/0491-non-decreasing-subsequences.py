@@ -1,23 +1,12 @@
 class Solution:
     def findSubsequences(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
         result = set()
-        sequence = []
-
-        def backtrack(index):
-            # if we have checked all elements
-            if index == len(nums):
-                if len(sequence) >= 2:
-                    result.add(tuple(sequence))
-                return
-            # if the sequence remains increasing after appending nums[index]
-            if not sequence or sequence[-1] <= nums[index]:
-                # append nums[index] to the sequence
-                sequence.append(nums[index])
-                # call recursively
-                backtrack(index + 1)
-                # delete nums[index] from the end of the sequence
-                sequence.pop()
-            # call recursively not appending an element
-            backtrack(index + 1)
-        backtrack(0)
+        for bitmask in range(1, 1 << n):
+            # build the sequence
+            sequence = [nums[i] for i in range(n) if (bitmask >> i) & 1]
+            # check if its length is at least 2, and it is increasing
+            if len(sequence) >= 2 and all([sequence[i] <= sequence[i + 1]
+                                          for i in range(len(sequence) - 1)]):
+                result.add(tuple(sequence))
         return result
