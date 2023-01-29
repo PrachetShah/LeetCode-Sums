@@ -90,7 +90,37 @@ struct Node
         left = right = NULL;
     }
 }; */
-
+// Optimized Method
+class Solution {
+  public:
+//   First -> Diameter and Second->Height
+  pair<int, int> diameterFast(Node* root){
+    //   Base Case
+    if(root == NULL){
+        pair<int, int> p = make_pair(0, 0);
+        return p;
+    }
+    
+    pair<int, int> leftAns = diameterFast(root->left);
+    pair<int, int> rightAns = diameterFast(root->right);
+    
+    int op1 = leftAns.first;
+    int op2 = rightAns.first;
+    int op3 = leftAns.second + 1 + rightAns.second;
+    
+    pair<int, int> ans;
+    
+    ans.first = max(op1, max(op2, op3));
+    ans.second = max(leftAns.second, rightAns.second)+1;
+    return ans;
+  }
+    // Function to return the diameter of a Binary Tree.
+    int diameter(Node* root) {
+        return diameterFast(root).first;
+    }
+};
+/*
+SLOW METHOD
 class Solution {
   private:
     int height(struct Node* root){
@@ -120,6 +150,7 @@ class Solution {
         return max(left, max(right, comb));
     }
 };
+*/
 
 //{ Driver Code Starts.
 
