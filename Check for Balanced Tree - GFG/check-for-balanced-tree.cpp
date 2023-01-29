@@ -111,13 +111,14 @@ class Solution{
             return p;
         }
         
+        // Conditions
         pair<bool, int> left = isBalancedFast(root->left);
         pair<bool, int> right = isBalancedFast(root->right);
         bool condition = abs(left.second - right.second) <= 1;
         
         pair<bool, int> ans;
         
-        // Conditions
+        // Checking all true or not
         if(left.first && right.first && condition){
             ans.first = true;
             ans.second = max(left.second, right.second) + 1;
