@@ -117,6 +117,7 @@ class Solution {
             Node* frontNode = temp.first;
             int hd = temp.second;
             
+            // Just keep pushing all the values
             bottomNode[hd] = frontNode->data;
             
             if(frontNode->left)
