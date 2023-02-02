@@ -2,6 +2,8 @@ class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
         map<int, int> m;
+        if(nums.empty())return {};
+        
         vector<int> ans;
         for(auto n: nums){
             m[n]++;
