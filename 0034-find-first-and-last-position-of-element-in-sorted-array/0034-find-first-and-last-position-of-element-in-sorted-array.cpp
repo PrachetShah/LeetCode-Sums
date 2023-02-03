@@ -48,7 +48,7 @@ public:
     }
     
     vector<int> searchRange(vector<int>& nums, int target) {
-        vector<int> ans;
+        // vector<int> ans;
         // cout<<"First Index: "<<first(nums, target)<<endl;
         // cout<<"Last Index: "<<last(nums, target)<<endl;
         // ans.push_back(first(nums, target));
