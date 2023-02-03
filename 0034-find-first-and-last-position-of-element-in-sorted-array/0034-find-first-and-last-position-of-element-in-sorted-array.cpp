@@ -51,8 +51,8 @@ public:
         vector<int> ans;
         // cout<<"First Index: "<<first(nums, target)<<endl;
         // cout<<"Last Index: "<<last(nums, target)<<endl;
-        ans.push_back(first(nums, target));
-        ans.push_back(last(nums, target));
-        return ans;
+        // ans.push_back(first(nums, target));
+        // ans.push_back(last(nums, target));
+        return {first(nums, target), last(nums, target)};
     }
 };
