@@ -1,6 +1,6 @@
 # Factorials of large numbers
 ## Medium
-<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an integer N, find its factorial.</span><br>
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an integer N, find its factorial.&nbsp;return a list of integers denoting the digits that make up the factorial of N.</span><br>
 <br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
