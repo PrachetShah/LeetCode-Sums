@@ -13,6 +13,7 @@ public:
             count++;
         }
         
+//         pair count will be 1 for sorted and 0 for elements with same elements
         return count<=1;
     }
 };
