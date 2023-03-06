@@ -1,15 +1,10 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        map<int, int> store;
+        int ans = 0;
         for(auto num: nums){
-            store[num]++;
+            ans ^= num;
         }
-        for(auto num: store){
-            if(num.second==1){
-                return num.first;
-            }
-        }
-        return 0;
+        return ans;
     }
 };
