@@ -30,33 +30,35 @@ class Solution{
     }
     
     public:
-    int partition (int arr[], int low, int high){
-       // select the rightmost element as pivot
+    // PIVOT AT START
+    int partition(int arr[], int s, int e){
+        int pivot = arr[s];
+        int j=e;
+        for(int i=e; i>s; i--){
+            if(arr[i] > pivot){
+                swap(arr[i], arr[j]);
+                j--;
+            }
+        }
+        swap(arr[j], arr[s]);
+        return j;
+    }
+    // PIVOT AT END
+    /* int partition (int arr[], int low, int high){
+      // select the rightmost element as pivot
           int pivot = arr[high];
-          
-          // pointer for greater element
           int i = (low - 1);
-        
-          // traverse each element of the array
-          // compare them with the pivot
+    
           for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                
-              // if element smaller than pivot is found
-              // swap it with the greater element pointed by i
-              i++;
-              
-              // swap element at i with element at j
+            if (arr[j] <= pivot) {              i++;
               swap(arr[i], arr[j]);
             }
           }
-          
-          // swap pivot with the greater element at i
           swap(arr[i + 1], arr[high]);
-          
-          // return the partition point
+
           return (i + 1);
     }
+    */
 };
 
 
