@@ -31,34 +31,34 @@ class Solution{
     
     public:
     // PIVOT AT START
-    int partition(int arr[], int s, int e){
-        int pivot = arr[s];
-        int j=e;
-        for(int i=e; i>s; i--){
-            if(arr[i] > pivot){
-                swap(arr[i], arr[j]);
-                j--;
-            }
-        }
-        swap(arr[j], arr[s]);
-        return j;
-    }
+    // int partition(int arr[], int s, int e){
+    //     int pivot = arr[s];
+    //     int j=e;
+    //     for(int i=e; i>s; i--){
+    //         if(arr[i] > pivot){
+    //             swap(arr[i], arr[j]);
+    //             j--;
+    //         }
+    //     }
+    //     swap(arr[j], arr[s]);
+    //     return j;
+    // }
     // PIVOT AT END
-    /* int partition (int arr[], int low, int high){
+    int partition (int arr[], int low, int high){
       // select the rightmost element as pivot
           int pivot = arr[high];
-          int i = (low - 1);
+          int i = (low);
     
           for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {              i++;
-              swap(arr[i], arr[j]);
+            if (arr[j] <= pivot) {              
+              swap(arr[i++], arr[j]);
             }
           }
-          swap(arr[i + 1], arr[high]);
+          swap(arr[i], arr[high]);
 
-          return (i + 1);
+          return (i);
     }
-    */
+    
 };
 
 
