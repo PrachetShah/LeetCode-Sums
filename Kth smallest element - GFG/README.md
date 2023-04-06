@@ -2,6 +2,8 @@
 ## Medium
 <div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array <strong>arr[]</strong> and an integer&nbsp;<strong>K</strong> where K is smaller than size of array, the task is to find the <strong>K<sup>th</sup> smallest</strong> element in the given array. It is given that all array elements are distinct.</span></p>
 
+<p><span style="font-size:18px"><strong>Note</strong> :-&nbsp;&nbsp;<strong>l</strong>&nbsp;and&nbsp;<strong>r</strong>&nbsp;denotes the&nbsp;<strong>starting</strong>&nbsp;and&nbsp;<strong>ending</strong>&nbsp;index of the array.</span></p>
+
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
 <pre><span style="font-size:18px"><strong>Input:</strong></span>
