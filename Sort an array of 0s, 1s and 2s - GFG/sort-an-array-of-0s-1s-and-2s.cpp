@@ -10,25 +10,30 @@ class Solution
     public:
     void sort012(int a[], int n){
         // code here 
-        int zero=0, one=0, two=0;
+        int zero = 0, one = 0, two = 0;
         for(int i=0; i<n; i++){
-            if(a[i]==0){
+            if(a[i]==0)
                 zero++;
-            }else if(a[i]==1){
+            else if(a[i]==1)
                 one++;
-            }else{
+            else
                 two++;
-            }
         }
-        int output[n];
-        for(int i=0; i<zero; i++){
+        int i=0;
+        while(zero > 0){
             a[i] = 0;
+            zero--;
+            i++;
         }
-        for(int i=zero; i<zero+one; i++){
+        while(one > 0){
             a[i] = 1;
+            i++;
+            one--;
         }
-        for(int i=zero+one; i<n;i++){
+        while(two > 0){
             a[i] = 2;
+            i++;
+            two--;
         }
     }
     
