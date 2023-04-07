@@ -36,6 +36,9 @@ class Solution
     struct Node* reverseList(struct Node *head){
         // code here
         // return head of reversed list
+        if(head == NULL || head->next==NULL){
+            return head;
+        }
         struct Node* prev=NULL;
         struct Node* curr=head;
         struct Node* forward;
