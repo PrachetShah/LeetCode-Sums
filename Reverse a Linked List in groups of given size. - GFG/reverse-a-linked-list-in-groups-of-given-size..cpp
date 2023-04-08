@@ -59,7 +59,7 @@ class Solution
         struct node* curr=head;
         struct node* prev=NULL;
         struct node* forward;
-        
+
         while(curr != NULL && count<k){
             forward = curr->next;
             curr->next = prev;
