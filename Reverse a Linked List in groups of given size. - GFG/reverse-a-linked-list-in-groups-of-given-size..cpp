@@ -50,12 +50,13 @@ class Solution
 {
     public:
     struct node *reverse (struct node *head, int k){ 
-        // Complete this method
+        // base call
         if(!head){
             return NULL;
         }
-        int count = 0;
         
+        // step1: reverse first k nodes
+        int count = 0;
         struct node* curr=head;
         struct node* prev=NULL;
         struct node* forward;
@@ -68,9 +69,12 @@ class Solution
             count++;
         }
         
+        // step2: recursion dekh lega
         if(forward != NULL){
             head->next = reverse(forward, k);
         }
+        
+        // step3: return head of reversed List
         return prev;
     }
 };
