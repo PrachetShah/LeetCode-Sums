@@ -48,16 +48,29 @@ class Solution
     //Function to check if the linked list has a loop.
     bool detectLoop(Node* head){
         // your code here
-        map<Node*, bool> m;
-        while(head){
-            if(m.find(head) != m.end()){
+        // Using Floyd Cycle OR Tortoise Hare Algo - O(1) Space
+        Node* slow = head;
+        Node* fast = head;
+        while(slow && fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow == fast){
                 return true;
-            }else{
-                m[head] = true;
             }
-            head = head->next;
         }
         return false;
+        
+        // Using MAP - O(n) Space
+        // map<Node*, bool> m;
+        // while(head){
+        //     if(m.find(head) != m.end()){
+        //         return true;
+        //     }else{
+        //         m[head] = true;
+        //     }
+        //     head = head->next;
+        // }
+        // return false;
     }
 };
 
