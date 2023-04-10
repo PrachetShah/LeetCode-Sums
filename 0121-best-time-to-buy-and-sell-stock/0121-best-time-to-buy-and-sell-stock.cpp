@@ -6,12 +6,10 @@ public:
         for(int i=0; i<prices.size(); i++){
             if(prices[i] < minProfit){
                 minProfit = prices[i];
-            }
-            else if((prices[i] - minProfit) > (maxProfit)){
+            }else if((prices[i]-minProfit) > maxProfit){
                 maxProfit = prices[i] - minProfit;
             }
         }
         return maxProfit;
-            
     }
 };
