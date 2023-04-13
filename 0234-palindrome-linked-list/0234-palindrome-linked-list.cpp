@@ -55,7 +55,7 @@ public:
             head2 = head2->next;
         }
         //step4 -> reverse to original
-        middle->next = reverse(temp);
+        // middle->next = reverse(temp);
         return true;
     }
 };
