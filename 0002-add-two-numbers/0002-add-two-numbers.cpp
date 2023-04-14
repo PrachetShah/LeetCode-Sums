@@ -9,20 +9,7 @@
  * };
  */
 class Solution {
-private:    
-    ListNode* reverse(ListNode* head){
-        ListNode* curr = head;
-        ListNode* prev = NULL;
-        ListNode* next = NULL;
-        while(curr){
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-    }
-    
+private:        
     void insertAtTail(ListNode* &head, ListNode* &tail, int val){
         ListNode* temp = new ListNode(val);
         if(head == NULL){
