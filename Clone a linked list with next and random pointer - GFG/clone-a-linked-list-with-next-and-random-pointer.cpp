@@ -19,21 +19,20 @@ struct Node {
 
 // } Driver Code Ends
 
-class Solution
-{
+class Solution{
    private:
-        void insertAtTail(Node* &head, Node* &tail, int d){
-            Node* newNode = new Node(d);
-            if(head==NULL){
-                head = newNode;
-                tail = newNode;
-                return;
-            }
-            else{
-                tail ->next = newNode;
-                tail = newNode;
-            }
+    void insertAtTail(Node* &head, Node* &tail, int d){
+        Node* newNode = new Node(d);
+        if(head==NULL){
+            head = newNode;
+            tail = newNode;
+            return;
         }
+        else{
+            tail ->next = newNode;
+            tail = newNode;
+        }
+    }
     public:
     Node *copyList(Node *head)
     {
@@ -47,19 +46,17 @@ class Solution
         }
         
         // create a map
-        unordered_map<Node*,Node*>oldtonew;
+        map<Node*, Node*> oldToNew;
         Node* original = head;
         Node* clone = cloneHead;
-        while(original != NULL && clone!=NULL){
-            oldtonew[original]=clone;
+        while(original){
+            oldToNew[original] = clone;
             original = original->next;
             clone = clone->next;
         }
-        original=head;
-        clone = cloneHead;
-        
-        while(original!=NULL){
-            clone->arb = oldtonew[original->arb];
+        original = head, clone = cloneHead;
+        while(original){
+            clone->arb = oldToNew[original->arb];
             original = original->next;
             clone = clone->next;
         }
