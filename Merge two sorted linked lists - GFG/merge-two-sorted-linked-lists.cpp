@@ -116,6 +116,5 @@ Node* sortedMerge(Node* head1, Node* head2)  {
         curr->next = head1;
     }
     return ptr;
-    
 }  
 
