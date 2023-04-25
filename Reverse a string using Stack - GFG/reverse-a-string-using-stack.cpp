@@ -33,11 +33,9 @@ char* reverse(char *S, int len)
     for(int i=0; i<len; i++){
         s.push(S[i]);
     }
-    string result = "";
     int i=0;
     while(!s.empty()){
         S[i++] = s.top();
-        result.push_back(s.top());
         s.pop();
     }
     // cout<<result;
