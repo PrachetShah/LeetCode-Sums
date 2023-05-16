@@ -16,7 +16,6 @@ public:
         
         for(int i=1; i<n+1; i++){
             for(int j=1; j<m+1; j++){
-                int val = 0;
                 if(word1[i-1] == word2[j-1]){
                     table[i][j] = table[i-1][j-1];
                 }else{
