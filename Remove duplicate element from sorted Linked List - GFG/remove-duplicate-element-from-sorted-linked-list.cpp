@@ -74,7 +74,7 @@ Node *removeDuplicates(Node *head){
     Node* curr = head;
     while(curr && curr->next){
         if(curr->data == curr->next->data){ // duplicate element
-            Node* next_node = curr -> next->next;
+            Node* next_node = curr->next->next;
             Node* node_to_delete = curr->next;
             delete node_to_delete;
             curr->next = next_node;
