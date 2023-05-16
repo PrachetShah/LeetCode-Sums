@@ -33,8 +33,6 @@ public:
         temp->next = head;
         head = temp;
         return head;
-        // cout << curr->val;
-        // return curr;
     }
 };
 
