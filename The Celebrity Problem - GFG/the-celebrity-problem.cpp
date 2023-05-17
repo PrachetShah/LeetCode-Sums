@@ -36,34 +36,28 @@ class Solution
         // step3: single element in stack is potential celebrity, so verify it
         int candidate = s.top();
         
-        bool rowCheck = false;
         int zeroCount = 0;
         for(int i=0; i<n; i++){
             if(M[candidate][i] == 0){
                 zeroCount++;
-            }else{
-                return -1;
             }
         }
-        rowCheck = true;
+        if(zeroCount != n){
+            return -1;
+        }
         
         // col check
-        bool colCheck = false;
         int oneCount = 0;
         for(int i=0; i<n; i++){
             if(M[i][candidate] == 1){
                 oneCount++;
             }
         }
-        if(oneCount == n-1){
-            colCheck = true;
-        }
-        
-        if(rowCheck && colCheck){
-            return candidate;
-        }else{
+        if(oneCount != n-1){
             return -1;
         }
+        
+        return candidate;
     }
 };
 
