@@ -41,11 +41,11 @@ class Solution
         for(int i=0; i<n; i++){
             if(M[candidate][i] == 0){
                 zeroCount++;
+            }else{
+                return -1;
             }
         }
-        if(zeroCount == n){
-            rowCheck = true;
-        }
+        rowCheck = true;
         
         // col check
         bool colCheck = false;
