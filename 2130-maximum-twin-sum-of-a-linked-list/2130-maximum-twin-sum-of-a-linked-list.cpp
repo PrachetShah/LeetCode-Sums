@@ -37,14 +37,15 @@ public:
         return prev;
     }
     int pairSum(ListNode* head) {
-        
+        // Finding middle of linked list
         ListNode* middle = mid(head);
         ListNode* left = head;
         
+        // reversing the second part of splited linked list to make the twin come to 0 pos
         ListNode* right = reverse(middle->next);
 
         middle->next = NULL;
-        
+        // calculating twin sum for nodes
         int sum = 0, value;
         while(left && right){
             value = left->val + right->val;
