@@ -11,11 +11,16 @@ public:
             one[s[i]]++;
             two[t[i]]++;
         }
-        for(i=0; i<len; i++){
-            if(one[s[i]] != two[s[i]]){
-                return false;
-            }
+        // for(i=0; i<len; i++){
+        //     if(one[s[i]] != two[s[i]]){
+        //         return false;
+        //     }
+        // }
+        if(one == two){
+            return true;
+        }else{
+            return false;
         }
-        return true;
+        // return true;
     }
 };
