@@ -4,12 +4,10 @@ private:
         vector<int> ans(n);
         stack<int> s;
         s.push(-1);
-        
         for(int i=n-1; i>=0; i--){
-            while(s.top()!=-1 && arr[s.top()] >= arr[i]){
+            while((s.top()!=-1) && arr[s.top()] >= arr[i]){
                 s.pop();
             }
-            // ans is stack ka top
             ans[i] = s.top();
             s.push(i);
         }
