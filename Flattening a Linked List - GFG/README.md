@@ -5,7 +5,9 @@
 (ii) a<strong>&nbsp;bottom</strong>&nbsp;pointer&nbsp;to a linked list where this node is head.<br>
 Each of the&nbsp;sub-linked-list is in sorted order.<br>
 Flatten the Link List such that all the nodes appear in a single level while maintaining the sorted order.&nbsp;</span><br>
-<span style="font-size:18px"><strong>Note:</strong> The flattened list will be printed using the bottom pointer instead of next pointer.</span></p>
+<br>
+<span style="font-size:18px"><strong>Note:</strong> The flattened list will be printed using the bottom pointer instead of the next pointer.<br>
+For more clarity have a look at the printList() function in the driver code.</span></p>
 
 <p>&nbsp;</p>
 
@@ -51,12 +53,8 @@ node in a single level.
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 You do not need to read input or print anything. Complete the function <strong>flatten()</strong></span><span style="font-size:18px"> that takes the&nbsp;<strong>head </strong>of the linked list as input&nbsp;parameter<strong> </strong>and returns the head of flattened link list.</span></p>
 
-<p>&nbsp;</p>
-
-<p><span style="font-size:18px"><strong>Expected Time Complexity:</strong>&nbsp;O(N*M)<br>
+<p><span style="font-size:18px"><strong>Expected Time Complexity:</strong>&nbsp;O(N*N*M)<br>
 <strong>Expected Auxiliary Space:</strong>&nbsp;O(1)</span></p>
-
-<p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Constraints:</strong></span><br>
 <span style="font-size:18px">0 &lt;= N &lt;= 50<br>
