@@ -1,7 +1,19 @@
-class Solution:
-    def findDuplicate(self, nums: List[int]) -> int:
-        n = len(nums)
-        total = n*(n+1)//2
-        val = total - sum(nums)
-        missing = total - sum(set(nums))
-        return (missing-val)//(len(nums)-len(set(nums)))
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+        
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow != fast);
+        
+        fast = nums[0];
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+};
