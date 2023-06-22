@@ -4,9 +4,19 @@ using namespace std;
  
 
 // } Driver Code Ends
+
 long long  numberOfPaths(int m, int n)
 {
     // Code Here
+    // Recursive Approach -> TC: O(2^N); SC: O(N + M)
+    if(m==1 || n==1){
+        return 1;
+    }
+    return numberOfPaths(m-1, n) + numberOfPaths(m, n-1);
+    
+
+    // DP Approach -> TC: O(m*n); SC: O(m*n)
+    /*
     int count[m][n];
     for(int i=0; i<m; i++){
         count[i][0] = 1;
@@ -21,6 +31,7 @@ long long  numberOfPaths(int m, int n)
         }
     }
     return count[m-1][n-1];
+    */
 }
 
 //{ Driver Code Starts.
