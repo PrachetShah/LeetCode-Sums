@@ -1,38 +1,29 @@
-class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        result = set()
-        p, n , z = [], [], []
-        for num in nums:
-            if num > 0:
-                p.append(num)
-            elif num < 0:
-                n.append(num)
-            else:
-                z.append(0)
-        
-        # Checking if 3 zeroes exist
-        if z.count(0)>=3:
-            result.add((0,0,0))
-          
-        # if zero exists check if there exists a complement
-        P, N = set(p), set(n)
-        if z:
-            for num in P:
-                if -num in N:
-                    result.add((-num, 0, num))
-                    
-        # for all negative nums, check if positive num exists
-        for i in range(len(n)):
-            for j in range(i+1, len(n)):
-                target = -(n[i]+n[j])
-                if target in P:
-                    result.add(tuple(sorted([n[i], n[j], target])))
-        
-        # for all positive nums, check if negative num exists
-        for i in range(len(p)):
-            for j in range(i+1, len(p)):
-                target = -(p[i]+p[j])
-                if target in N:
-                    result.add(tuple(sorted([p[i], p[j], target])))
-                    
-        return result
+//Optimized Approach - O(n^2 logn + nlogn) - o(n^2 logn) time and O(n) space
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int target = 0;
+        sort(nums.begin(), nums.end());
+        set<vector<int>> s;
+        vector<vector<int>> output;
+        for (int i = 0; i < nums.size(); i++){
+            int j = i + 1;
+            int k = nums.size() - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum == target) {
+                    s.insert({nums[i], nums[j], nums[k]});
+                    j++;
+                    k--;
+                } else if (sum < target) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+        }
+        for(auto triplets : s)
+            output.push_back(triplets);
+        return output;
+    }
+};
