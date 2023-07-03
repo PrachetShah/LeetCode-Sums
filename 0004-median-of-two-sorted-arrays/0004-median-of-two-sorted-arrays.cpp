@@ -27,17 +27,17 @@ public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         vector<int> merged = merge(nums1, nums2);
         
-        // int mid = ceil(merged.size()/2);
-        for(auto num: merged){
-            cout << num << " ";
-        }
+        // for(auto num: merged){
+        //     cout << num << " ";
+        // }
         // cout << endl << mid << endl;
+        
         int mid = ceil(merged.size()/2);
+        
         if(merged.size()%2 == 0){
             return (double)(merged[mid-1] + merged[mid])/2;
         }else{
             return merged[mid];
         }
-        return 0;
     }
 };
