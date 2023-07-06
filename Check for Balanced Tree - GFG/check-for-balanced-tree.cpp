@@ -142,20 +142,23 @@ class Solution{
     bool isBalanced(Node *root)
     {
         //  Your Code here
-        // return isBalancedFast(root).first;
-        if(root== NULL){
-            return true;
-        }
+        // FAST AND EFFICIENT
+        return isBalancedFast(root).first;
         
-        bool left = isBalanced(root->left);
-        bool right = isBalanced(root->right);
-        bool condition = abs(height(root->left) - height(root->right)) <= 1 ? true : false;
+        // SLOW CODE
+        // if(root== NULL){
+        //     return true;
+        // }
         
-        if(left && right && condition){
-            return true;
-        }else{
-            return false;
-        }
+        // bool left = isBalanced(root->left);
+        // bool right = isBalanced(root->right);
+        // bool condition = abs(height(root->left) - height(root->right)) <= 1 ? true : false;
+        
+        // if(left && right && condition){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
     }
 };
 
