@@ -103,48 +103,43 @@ struct Node {
 class Solution{
     public:
     //Function to store the zig zag order traversal of tree in a list.
-    vector <int> zigZagTraversal(Node* root)
-    {
+    vector <int> zigZagTraversal(Node* root){
     	// Code here
     	vector<int> result;
+    	if(root == NULL){
+    	    return result;
+    	}
+    	queue<Node*> q;
+    	q.push(root);
+    	bool leftToRight = true;
     	
-	    if(root == NULL){
-	        return result;
-	    }
-	    
-	    queue<Node*> q;
-	    q.push(root);
-	    bool leftToRight = true;
-	    
-	    while(!q.empty()){
-	        
-            int size = q.size();
-            vector<int> ansStack(size);
-	        
-           // Level Order Process
-           for(int i=0; i<size; i++){
-               Node* Front = q.front();
-               q.pop();
-               
-            //   Normal insert or reverse insert
-               int index = leftToRight ? i : size-i-1;
-               ansStack[index] = Front->data;
-               
-               if(Front->left)
-                   q.push(Front->left);
-    
-               if(Front->right)
-                   q.push(Front->right);
-           }
-           //Change Direction for next level
-           leftToRight = !leftToRight;	
-           
-           //Add Ans Array stack in result
-           for(auto i: ansStack){
-               result.push_back(i);
-           }
-	    }
-	   return result;
+    	while(!q.empty()){
+    	    // at each level initialse array of size of elements in level
+    	    int size = q.size();
+    	    vector<int> ans(size);
+    	    
+    	    // Level Process
+    	    for(int i=0; i<size; i++){
+    	        Node* temp = q.front();
+    	        q.pop();
+    	        
+    	        // left to right or reverse insert
+    	        int index = leftToRight ? i : size-i-1;
+    	        ans[index] = temp->data;
+    	        
+    	        if(temp->left){
+    	            q.push(temp->left);
+    	        }
+    	        if(temp->right){
+    	            q.push(temp->right);
+    	        }
+    	    }
+    	    leftToRight = !leftToRight;
+    	    for(auto i: ans){
+    	        result.push_back(i);
+    	    }
+    	}
+    	return result;
     }
 };
 
