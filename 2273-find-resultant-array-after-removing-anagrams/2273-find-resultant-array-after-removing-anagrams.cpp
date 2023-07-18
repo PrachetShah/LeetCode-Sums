@@ -16,7 +16,7 @@ public:
         int i=1;
         while(i < words.size()){
             if(checkPalindrome(words[i], words[i-1])){
-                cout << words[i] << " "<< words[i-1] << endl;
+                // cout << words[i] << " "<< words[i-1] << endl;
                 words.erase(words.begin() +i);
                 // i++;
             }else{
