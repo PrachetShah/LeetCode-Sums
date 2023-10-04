@@ -13,11 +13,11 @@ using namespace std;
 
 int sumElement(int arr[],int n){
     //Your code here
-    int sum = 0;
-    for(int i=0 ;i<n; i++){
-        sum += arr[i];
+    int ans = 0;
+    for(int i=0; i<n; i++){
+        ans += arr[i];
     }
-    return sum;
+    return ans;
 }
 
 
