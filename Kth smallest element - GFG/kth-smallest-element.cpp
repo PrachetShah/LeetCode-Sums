@@ -15,10 +15,17 @@ class Solution{
     // k : find kth smallest element and return using this function
     int kthSmallest(int arr[], int l, int r, int k) {
         //code here
-        sort(arr, arr+r+1);
-        // for(int i=0 ; i<r+1; i++){
-        //     cout << arr[i] << endl;
+        priority_queue<int, vector<int>, greater<int>> minHeap;
+        
+        // for(int i=0; i<=r; i++){
+        //     minHeap.push(arr[i]);
         // }
+        
+        // for(int i=0; i<k-1; i++){
+        //     minHeap.pop();
+        // }
+        sort(arr, arr+r+1);
+        // return minHeap.top();
         return arr[k-1];
     }
 };
