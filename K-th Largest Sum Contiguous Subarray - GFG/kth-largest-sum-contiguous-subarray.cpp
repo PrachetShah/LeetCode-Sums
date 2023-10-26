@@ -10,25 +10,46 @@ using namespace std;
 class Solution{
 public:
     int kthLargest(vector<int> &Arr,int N,int K){
-        priority_queue<int> pq;
-        
-        // pq.push(Arr[0]);
+        // O(n^2logk)
+        priority_queue<int, vector<int>, greater<int>> minHeap;
         for(int i=0; i<N; i++){
-            int sum = Arr[i];
-            pq.push(sum);
-            for(int j=i+1; j<N; j++){
+            int sum = 0;
+            for(int j=i; j<N; j++){
                 sum += Arr[j];
-                pq.push(sum);
+                if(minHeap.size()<K){
+                    minHeap.push(sum);
+                }else{
+                    if(minHeap.top() < sum){
+                        minHeap.pop();
+                        minHeap.push(sum);
+                    }
+                }
             }
         }
         
-        // cout << pq.size() << endl;
+        return minHeap.top();
         
-        for(int i=0; i<K-1; i++){
-            pq.pop();
-        }
         
-        return pq.top();
+        // O(n^2logn)
+        // priority_queue<int> pq;
+        
+        // // pq.push(Arr[0]);
+        // for(int i=0; i<N; i++){
+        //     int sum = Arr[i];
+        //     pq.push(sum);
+        //     for(int j=i+1; j<N; j++){
+        //         sum += Arr[j];
+        //         pq.push(sum);
+        //     }
+        // }
+        
+        // // cout << pq.size() << endl;
+        
+        // for(int i=0; i<K-1; i++){
+        //     pq.pop();
+        // }
+        
+        // return pq.top();
     }
 };
 
