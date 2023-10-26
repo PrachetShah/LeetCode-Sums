@@ -32,13 +32,15 @@ class Solution{
     
     vector<int> mergeHeaps(vector<int> &a, vector<int> &b, int n, int m) {
         // your code here
-        
+        // merge 2 arrays
         vector<int> c(a.begin(), a.end());
         for(int i=0; i<m; i++){
             c.push_back(b[i]);
         }
+        
+        // apply the heapify function
         int s = c.size();
-        for(int i=s/2; i>=0; i--){
+        for(int i=s/2-1; i>=0; i--){
             maxHeapify(c, c.size(), i);
         }
         
