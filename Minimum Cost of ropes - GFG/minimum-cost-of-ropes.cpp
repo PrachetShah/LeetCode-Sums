@@ -8,6 +8,8 @@ class Solution
 {
     public:
     //Function to return the minimum cost of connecting the ropes.
+    // SC: O(n)
+    // TC: O(nlogn)
     long long minCost(long long arr[], long long n) {
         // Your code here
         priority_queue<long long, vector<long long>, greater<long long>> minHeap;
