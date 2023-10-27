@@ -13,19 +13,22 @@ class Solution
     {
         // Your code here
         vector<pair<int, int> > ans;
-        vector<pair<int, int>> activity;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> activity;
         for(int i=0; i<n; i++){
-            activity.push_back({f[i], s[i]});
+            activity.push({f[i], s[i]});
         }
         
-        sort(activity.begin(), activity.end());
+        // sort(activity.begin(), activity.end());
         
-        int last = activity[0].first;
+        int last = activity.top().first;
         int count = 1;
+        activity.pop();
         
-        for(int i=1; i<n; i++){
-            if(last < activity[i].second){
-                last = activity[i].first;
+        while(!activity.empty()){
+            auto temp = activity.top();
+            activity.pop();
+            if(last < temp.second){
+                last = temp.first;
                 count++;
             }
         }
