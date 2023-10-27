@@ -26,8 +26,6 @@ public:
 	        arr[i] = unorderedMap[arr[i]];
 	    }
 	    
-	   // int i=0;
-	    
 	}
 
 };
