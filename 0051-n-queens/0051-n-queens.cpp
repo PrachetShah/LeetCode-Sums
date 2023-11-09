@@ -1,33 +1,18 @@
 class Solution {
 public:
-    bool isSafe(int row, int col,  vector<vector<int>> &board, int n){
-        int x = row; 
-        int y=col;
-
-        while(y>=0){
-            if(board[x][y] == 1){
-                return false;
-            }
-            y--;
+    bool isSafe(int row, int col,  vector<vector<int>> &board, int n,
+               map<int, bool> &rowCheck, map<int, bool> &lowDiag, map<int, bool> &upDiag){
+        if(rowCheck[row]){
+            return false;
         }
 
-        x=row, y=col;
         // check diagonal
-        while(x>=0 && y>=0){
-            if(board[x][y]==1){
-                return false;
-            }
-            x--;
-            y--;
+        if(lowDiag[row+col]){
+            return false;
         }
 
-        x=row, y=col;
-        while(x<n && y>=0){
-            if(board[x][y]==1){
-                return false;
-            }
-            x++;
-            y--;
+        if(upDiag[n-1+col-row]){
+            return false;
         }
 
         return true;
@@ -52,7 +37,8 @@ public:
     }
 
 
-    void solve(int col, vector<vector<string>> &ans, vector<vector<int>> &board, int n){
+    void solve(int col, vector<vector<string>> &ans, vector<vector<int>> &board, int n,
+              map<int, bool> &rowCheck, map<int, bool> &lowDiag, map<int, bool> &upDiag){
         if(col == n){
             addSolution(board, ans, n);
             return;
@@ -60,11 +46,13 @@ public:
 
         // solve 1 case, rest by recursion
         for(int row=0; row <n; row++){
-            if(isSafe(row, col, board, n)){
+            if(isSafe(row, col, board, n, rowCheck, lowDiag, upDiag)){
                 board[row][col] = 1;
-                solve(col+1, ans, board, n);
+                rowCheck[row]=true, lowDiag[row+col]=true, upDiag[n-1+col-row]=true;
+                solve(col+1, ans, board, n, rowCheck, lowDiag, upDiag);
                 // backtracking
                 board[row][col] = 0;
+                rowCheck[row]=false, lowDiag[row+col]=false, upDiag[n-1+col-row]=false;
             }
         }
     }
@@ -72,7 +60,11 @@ public:
         vector<vector<string>> ans;
         vector<vector<int>> board(n, vector<int> (n, 0));
         // col
-        solve(0, ans, board, n);
+        map<int, bool> rowCheck;
+        map<int, bool> lowDiag;
+        map<int, bool> upDiag;
+        // col
+        solve(0, ans, board, n, rowCheck, lowDiag, upDiag);
 
         return ans;
     }
