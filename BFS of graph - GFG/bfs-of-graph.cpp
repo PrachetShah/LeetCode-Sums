@@ -26,7 +26,7 @@ class Solution {
                 }
             }
         }
-        
+
         return ans;
     }
 };
