@@ -1,25 +1,28 @@
 class Solution {
 public:
     int maxFrequencyElements(vector<int>& nums) {
-        // Find the frequency of each element
         unordered_map<int, int> frequencies;
+        int maxFrequency = 0;
+        int totalFrequencies = 0;
+
+        // Find the frequency of each element
+        // Determine the maximum frequency
+        // Calculate the total frequencies of elements with the maximum frequency
         for (int num : nums) {
             frequencies[num]++;
-        }
+            int frequency = frequencies[num];
 
-        // Determine the maximum frequency
-        int maxFrequency = 0;
-        for (auto [num, frequency] : frequencies) {
-            maxFrequency = max(maxFrequency, frequency);
-        }
-
-        // Calculate the total frequencies of elements with the maximum frequency
-        int frequencyOfMaxFrequency = 0;
-        for (auto [num, frequency] : frequencies) {
-            if (frequency == maxFrequency) {
-                frequencyOfMaxFrequency++;
+            // If we discover a higher frequency element
+            // Update maxFrequency
+            // Re-set totalFrequencies to the new max frequency
+            if (frequency > maxFrequency) {
+                maxFrequency = frequency;
+                totalFrequencies = frequency;
+                // If we find an element with the max frequency, add it to the total
+            } else if (frequency == maxFrequency) {
+                totalFrequencies += frequency;
             }
         }
-        return frequencyOfMaxFrequency * maxFrequency;
+        return totalFrequencies;
     }
 };
