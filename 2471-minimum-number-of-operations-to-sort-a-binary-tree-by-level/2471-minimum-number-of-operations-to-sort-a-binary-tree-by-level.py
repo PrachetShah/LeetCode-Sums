@@ -12,17 +12,26 @@ class Solution:
         minOper = 0
         
         def perm(arr):
-            pos = {m:j for j,m in enumerate(sorted(arr))}
-            vis = [0]*len(arr)
             tot = 0
+            n = len(arr)
+            arrPos = [*enumerate(arr)]
+            arrPos.sort(key=lambda k:k[1])
+            vis = {k:False for k in range(n)}
             
-            for i in range(len(arr)):
-                cnt = 0
-                while not vis[i] and i != pos[arr[i]]:
-                    vis[i], i = 1, pos[arr[i]]
-                    cnt += 1
-                tot += max(0, cnt-1)
-            return tot                
+            for i in range(n):
+                if vis[i] or arrPos[i][0] == i:
+                    continue
+                
+                cycleSize = 0
+                j = i
+                while not vis[j]:
+                    vis[j] = True
+                    j = arrPos[j][0]
+                    cycleSize += 1
+                if cycleSize > 1:
+                    tot += cycleSize-1
+            return tot
+                    
             
         
         while queue:
