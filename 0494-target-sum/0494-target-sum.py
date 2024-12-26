@@ -1,5 +1,20 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        # using python itertator map
+        totalSum = sum(nums)
+        d = defaultdict(int)
+        d[0] = 1
+        
+        for num in nums:
+            dp = defaultdict(int)
+            for k, v in d.items():
+                dp[k+num] += v
+                dp[k-num] += v
+            d = dp
+        return d[target] if target in d else 0
+        
+        
+        # space optimised 1D DP Sol
         totalSum = sum(nums)
         dp = [0]*(2*totalSum+1)
         
